@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx-lb
+  namespace: ingress-nginx
+  annotations:
+    # Forces MetalLB to use the specific IP pool defined above
+    metallb.io/address-pool: main-pool
+spec:
+  type: LoadBalancer
+  selector:
+    # Must match your current Ingress Controller labels
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP
+    - name: https
+      port: 443
+      targetPort: https
+      protocol: TCP

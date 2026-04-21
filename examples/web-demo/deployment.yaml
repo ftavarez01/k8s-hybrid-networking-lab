@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-web-demo
+  namespace: demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: web-demo-local
+  template:
+    metadata:
+      labels:
+        component: web-demo-local
+    spec:
+      containers:
+      - name: web-container
+        image: traefik/whoami
+        ports:
+        - containerPort: 80

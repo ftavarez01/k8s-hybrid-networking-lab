@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-web-demo
+  namespace: demo
+  annotations:
+    # NGINX specific annotations for traffic shaping
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/force-redirect-ssl: "true"
+spec:
+  ingressClassName: nginx # Links this resource to the MetalLB-backed controller
+  rules:
+  - host: demo.local.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: svc-web-demo
+            port:
+              number: 80

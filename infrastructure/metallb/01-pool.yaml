@@ -1,0 +1,10 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: main-pool
+  namespace: metallb-system
+spec:
+  # Professional dummy range based on documentation standards
+  addresses:
+  - 198.51.100.23-198.51.100.40
+  autoAssign: true

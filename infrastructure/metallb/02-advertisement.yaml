@@ -1,0 +1,9 @@
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: main-advertisement
+  namespace: metallb-system
+spec:
+  # Binds the pool to Layer 2 advertisement (ARP/NDP)
+  ipAddressPools:
+  - main-pool
