@@ -50,7 +50,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 198.51.100.23-198.51.100.40
+  - 198.51.100.101-198.51.100.140
 2. Ingress Integration
 Create a LoadBalancer service for NGINX and link it to the controller.
 
@@ -78,11 +78,12 @@ Note: Ensure the Ingress Controller deployment is patched with --publish-service
 Plaintext
 
 .
-├── infrastructure/
-│   ├── metallb/           # IPPool & L2Advertisement manifests
-│   └── ingress-nginx/     # Service LB & Controller patches
-├── apps/
-│   └── web-demo/          # Deployment, ClusterIP, and Ingress examples
-└── scripts/               # SSL generation and troubleshooting tools
-👨‍💻 Author
-Oracle DBA & Aspiring SRE Focused on bridging the gap between traditional database management and modern Cloud-Native infrastructure.
+k8s-hybrid-networking-lab/
+├── README.md              # Project overview, architecture, and usage guide.
+├── docs/                  # Architectural diagrams, screenshots, and assets.
+├── infrastructure/        # Core cluster components and platform setup.
+│   ├── metallb/           # MetalLB Layer 2 IPAddressPool and L2Advertisement.
+│   └── ingress-nginx/     # NGINX Ingress Controller LoadBalancer and patches.
+└── examples/              # Sample applications for infrastructure validation.
+    └── web-demo/          # Standard Whoami deployment, service, and ingress.
+
