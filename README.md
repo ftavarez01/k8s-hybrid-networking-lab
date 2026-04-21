@@ -196,4 +196,10 @@ Planned next steps for expanding the platform:
 - **ExternalDNS** for automatic DNS record management  
 - **Prometheus + Grafana** for observability and alerting  
 - **GitOps with ArgoCD** for declarative deployments  
-- **Multi-cluster Ingress Federation** for scale and resilience  
+- **Multi-cluster Ingress Federation** for scale and resilience
+
+---
+
+## 👨‍💻 Author
+
+Built as a real-world Kubernetes infrastructure project focused on DevOps, Platform Engineering, and production-grade cluster networking.
