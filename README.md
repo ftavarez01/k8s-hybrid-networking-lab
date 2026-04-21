@@ -1,5 +1,10 @@
 # Kubernetes Bare-Metal Networking Stack 🚀
 
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Production-blue)
+![MetalLB](https://img.shields.io/badge/MetalLB-L2_Mode-green)
+![NGINX](https://img.shields.io/badge/Ingress-NGINX-orange)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 Production-grade external networking architecture for **bare-metal Kubernetes clusters** using **MetalLB** and **NGINX Ingress Controller**.
 
 This project solves the common on-premise Kubernetes challenge of exposing services externally **without AWS ELB, GCP Load Balancers, or cloud-native integrations**.
@@ -200,6 +205,12 @@ Planned next steps for expanding the platform:
 
 ---
 
+## 📜 License
+
+MIT License
+
+---
+
 ## 👨‍💻 Author
 
-Built as a real-world Kubernetes infrastructure project focused on DevOps, Platform Engineering, and production-grade cluster networking.
+Built as a real-world Kubernetes infrastructure project focused on DevOps and Platform Engineering. Created by Francisco Tavarez as part of a hands-on engineering portfolio.
