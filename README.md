@@ -1,7 +1,7 @@
 # Kubernetes Bare-Metal Networking Stack 🚀
 
 This repository documents the implementation of a production-grade networking architecture for **Bare-Metal Kubernetes** clusters. It solves the "External IP" challenge in on-premise environments without relying on public cloud providers.
-
+![Kubernetes Bare-Metal Architecture](./docs/principal-imag.png)
 ## 🏗️ About the Project
 This project demonstrates the implementation of a high-availability networking stack for **Bare-Metal Kubernetes** environments. In the absence of native cloud load balancers, this architecture leverages **MetalLB** and **NGINX Ingress Controller** to provide a production-grade entry point for containerized applications.
 
