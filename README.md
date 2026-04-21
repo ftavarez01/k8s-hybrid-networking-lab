@@ -25,65 +25,37 @@ Traditional Bare-Metal clusters struggle with external traffic management, often
 * **DBA Optimized:** Designed to handle long-lived connections and persistent traffic required for database workloads.
 
 ---
-
 ## ⚙️ Installation & Configuration
 
 ### 1. MetalLB Setup (Layer 2)
-First, deploy MetalLB via Helm and configure the IP address pool.
+Deploy MetalLB using Helm and apply the configuration directly from this repository.
 
 ```bash
-# Add Helm repo
+# Add and update MetalLB Helm repository
 helm repo add metallb [https://metallb.github.io/metallb](https://metallb.github.io/metallb)
 helm repo update
 
-# Install MetalLB
+# Install MetalLB in its own namespace
 kubectl create ns metallb-system
 helm install metallb metallb/metallb -n metallb-system
-IP Address Pool Configuration:
 
-YAML
+# Apply IP Pool and Advertisement from infrastructure folder
+kubectl apply -f infrastructure/metallb/
+```
 
-apiVersion: metallb.io/v1beta1
-kind: IPAddressPool
-metadata:
-  name: main-pool
-  namespace: metallb-system
-spec:
-  addresses:
-  - 198.51.100.101-198.51.100.140
-2. Ingress Integration
-Create a LoadBalancer service for NGINX and link it to the controller.
-
-YAML
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: ingress-nginx-lb
-  namespace: ingress-nginx
-  annotations:
-    metallb.io/address-pool: main-pool
-spec:
-  type: LoadBalancer
-  selector:
-    app.kubernetes.io/component: controller
-  ports:
-    - name: http
-      port: 80
-    - name: https
-      port: 443
 Note: Ensure the Ingress Controller deployment is patched with --publish-service=ingress-nginx/ingress-nginx-lb.
 
-📂 Repository Structure
-Plaintext
+## 📂 Repository Structure
 
-.
+```text
 k8s-hybrid-networking-lab/
-├── README.md              # Project overview, architecture, and usage guide.
-├── docs/                  # Architectural diagrams, screenshots, and assets.
-├── infrastructure/        # Core cluster components and platform setup.
-│   ├── metallb/           # MetalLB Layer 2 IPAddressPool and L2Advertisement.
-│   └── ingress-nginx/     # NGINX Ingress Controller LoadBalancer and patches.
-└── examples/              # Sample applications for infrastructure validation.
-    └── web-demo/          # Standard Whoami deployment, service, and ingress.
-
+├── README.md              # Project overview, architecture, and full guide
+├── docs/                  # Diagrams, screenshots, and documentation assets
+├── infrastructure/        # Core cluster networking components
+│   ├── metallb/           # IP pools, L2Advertisement, MetalLB configs
+│   └── ingress-nginx/     # LoadBalancer service and controller patches
+└── examples/              # Demo workloads for validation and testing
+    └── web-demo/
+        ├── deployment.yaml
+        ├── service.yaml
+        └── ingress.yaml
