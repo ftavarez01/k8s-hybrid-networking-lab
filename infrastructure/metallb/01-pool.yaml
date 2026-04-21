@@ -6,5 +6,5 @@ metadata:
 spec:
   # Professional dummy range based on documentation standards
   addresses:
-  - 198.51.100.23-198.51.100.40
+  - 198.51.100.101-198.51.100.140
   autoAssign: true
