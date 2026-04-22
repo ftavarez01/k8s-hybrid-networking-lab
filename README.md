@@ -129,6 +129,7 @@ k8s-hybrid-networking-lab/
 ```
 ---
 ## ⚙️ Installation & Configuration
+
 ### 1️⃣ Install MetalLB
 
 Install MetalLB using Helm:
@@ -196,6 +197,30 @@ Once the deployment is complete, verify that **MetalLB** has assigned the Extern
 > [!NOTE]
 > The **ADDRESS** field matches your MetalLB IP pool, confirming that the traffic is now routable from your physical network.
 ---
+
+## ✅ Validation Results
+
+- External VIP successfully assigned by MetalLB
+- Host-based routing functional through NGINX Ingress
+- Sample application reachable externally
+- Namespace security controls enforced with PSA
+- High availability architecture validated
+
+---
+
+## 🧠 Skills Demonstrated
+
+- Kubernetes
+- MetalLB
+- NGINX Ingress
+- Linux Networking
+- High Availability
+- Security Hardening
+- Infrastructure as Code
+- Troubleshooting
+
+---
+
 ## 📸 Example Use Cases
 
 This architecture can be applied to multiple real-world scenarios:
