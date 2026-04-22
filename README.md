@@ -136,6 +136,11 @@ helm repo update
 
 kubectl create namespace metallb-system
 
+kubectl label namespace metallb-system \
+  pod-security.kubernetes.io/enforce=privileged \
+  pod-security.kubernetes.io/audit=privileged \
+  pod-security.kubernetes.io/warn=privileged
+
 helm install metallb metallb/metallb --namespace metallb-system
 ```
 ### 2️⃣ Configure MetalLB (Layer 2)
