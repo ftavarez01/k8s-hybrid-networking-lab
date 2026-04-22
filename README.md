@@ -68,6 +68,27 @@ This project replaces that model with a **Virtual IP (VIP)** architecture where 
 
 ---
 
+## 🔐 Security Considerations
+
+This project uses **Pod Security Admission (PSA)** labels to secure Kubernetes namespaces based on workload requirements.
+
+Infrastructure components such as **MetalLB** run in a dedicated namespace with privileged enforcement due to low-level networking requirements:
+
+- `pod-security.kubernetes.io/enforce=privileged`
+- `pod-security.kubernetes.io/audit=privileged`
+- `pod-security.kubernetes.io/warn=privileged`
+
+Kubernetes PSA supports three policy levels:
+
+- **Privileged** → Unrestricted access for trusted infrastructure workloads  
+- **Baseline** → Prevents common privilege escalations  
+- **Restricted** → Strong defaults for standard application workloads
+
+For this architecture, infrastructure namespaces may require **privileged**, while application namespaces should follow **restricted** whenever possible.
+
+
+---
+
 ## 🚀 Key Features
 
 - **L2 VIP Failover**  
