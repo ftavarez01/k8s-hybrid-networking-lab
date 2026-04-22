@@ -9,6 +9,10 @@ Production-grade external networking architecture for **bare-metal Kubernetes cl
 
 This project solves the common on-premise Kubernetes challenge of exposing services externally **without AWS ELB, GCP Load Balancers, or cloud-native integrations**.
 
+## 📌 Project Status
+
+Completed and actively maintained for portfolio / lab improvements.
+
 ---
 
 ## 🖼️ Architecture Diagram
